@@ -1,0 +1,38 @@
+
+
+Exporting ACCESS KEYS For Linux/Mac:
+
+export AWS_ACCESS_KEY_ID="your_access_key_id"
+export AWS_SECRET_ACCESS_KEY="your_secret_access_key"
+export AWS_DEFAULT_REGION="your default region"
+
+
+Exporting ACCESS-KEYS For Windows Command Prompt:
+
+ set AWS_ACCESS_KEY_ID="your_access_key_id"
+ set AWS_SECRET_ACCESS_KEY="your_secret_access_key"
+ set AWS_DEFAULT_REGION="your default region"
+
+ NB: Perform the following tasks before exporting the access keys in your MAC/LINUX terminal or Windows command prompt
+
+Open your mac terminal or linux terminal or windows command prompt
+
+Run the following commands
+
+cd .aws
+ls 
+
+********** Remove the config and credentials files ************************
+rm config
+rm credentials 
+
+//This will delete the default profile that is already configured.
+
+/// Finally you can now export your environmental variables in your windows command prompt or Mac terminal or Linux terminal
+
+######&&*************** This should be done before our class on Friday.  *******************
+
+###Run the following command and send me a screenshot
+aws configure  
+your AWS Access Key ID, AWS Secret Access Key and Default region name should not be visible to anybody.
+The output should be None for all the parameters.
