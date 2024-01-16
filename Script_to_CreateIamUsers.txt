@@ -1,0 +1,68 @@
+Act in the capacity of a bash specialist and perform the following tasks:
+create a script that will automate the following aws tasks in AWS
+Create 2 IAM users name sammy and blossom
+Create an IAM group know as SOC and CNOC
+blossom should be added to the SOC group and sammy to the NOC group
+Add IAM Full Access permissions to the SOC group and AWSEC2FullAccess to the CNOC group
+Add AWS IAMUserChangePassword to the SOC and CNOC groups
+Create a login profile for sammy and blossom.
+sammy and should be able to change their password at next login
+
+STEPS
+Here are the steps we'll follow in the script:
+
+Create IAM users 'sammy' and 'blossom'.
+Create IAM groups 'SOC' and 'CNOC'.
+Add 'blossom' to the 'SOC' group and 'sammy' to the 'CNOC' group.
+Attach the 'IAMFullAccess' policy to the 'SOC' group and 'AmazonEC2FullAccess' to the 'CNOC' group.
+Attach the 'IAMUserChangePassword' policy to both groups.
+Create login profiles for 'sammy' and 'blossom' with the requirement to change their password at next login
+
+
+Solution:
+$vim iam_users.sh
+
+#!/bin/bash
+# Creating IAM users
+aws iam create-user --user-name sammy
+aws iam create-user --user-name blossom
+
+# Creating IAM groups
+aws iam create-group --group-name SOC
+aws iam create-group --group-name CNOC
+
+# Adding users to groups
+aws iam add-user-to-group --user-name blossom --group-name SOC
+aws iam add-user-to-group --user-name sammy --group-name CNOC
+
+# Attaching policies to groups
+aws iam attach-group-policy --group-name SOC --policy-arn arn:aws:iam::aws:policy/IAMFullAccess
+aws iam attach-group-policy --group-name CNOC --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess
+aws iam attach-group-policy --group-name SOC --policy-arn arn:aws:iam::aws:policy/IAMUserChangePassword
+aws iam attach-group-policy --group-name CNOC --policy-arn arn:aws:iam::aws:policy/IAMUserChangePassword
+
+# Creating login profiles and require password change at next login
+aws iam create-login-profile --user-name sammy --password MyPassword123! --password-reset-required
+aws iam create-login-profile --user-name blossom --password MyPassword123! --password-reset-required
+
+echo "Script execution completed."
+
+
+
+ALTERNATE METHOD OF AUTOMATING THE CREATION OF IAM Identities Using scripts
+
+# Create the IAM group
+aws iam create-group --group-name Finance
+
+# Attach a policy to the group (replace with your actual policy ARN)
+aws iam attach-group-policy --group-name Finance --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+aws iam attach-group-policy --group-name Finance --policy-arn arn:aws:iam::aws:policy/IAMUserChangePassword
+# Create multiple users and add them to the group
+for user in mawein randolp heavenly olive; do
+    aws iam create-user --user-name $user
+    aws iam add-user-to-group --user-name $user --group-name Finance
+
+    # Create a login profile for each user
+    aws iam create-login-profile --user-name $user --password MyPassword123! --password-reset-required
+done
+
