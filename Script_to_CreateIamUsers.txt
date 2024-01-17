@@ -6,7 +6,7 @@ blossom should be added to the SOC group and sammy to the NOC group
 Add IAM Full Access permissions to the SOC group and AWSEC2FullAccess to the CNOC group
 Add AWS IAMUserChangePassword to the SOC and CNOC groups
 Create a login profile for sammy and blossom.
-sammy and should be able to change their password at next login
+sammy and blossom should be able to change their password at next login
 
 STEPS
 Here are the steps we'll follow in the script:
