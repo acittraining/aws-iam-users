@@ -89,14 +89,14 @@ terraform apply    or terraform --auto-approve
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #############################################################################  Executing the Terraform Configuration #########################################################################################################################
-#Initialization: Run terraform init in your Terraform directory. This command initializes Terraform, downloads the AWS provider, and prepares your configuration for execution.
+Initialization: Run terraform init in your Terraform directory. This command initializes Terraform, downloads the AWS provider, and prepares your configuration for execution.
 
-#Planning: Execute terraform plan to see what resources Terraform will create or modify. This step doesn't make any changes to your actual infrastructure but shows what will happen when you apply the configuration.
+Planning: Execute terraform plan to see what resources Terraform will create or modify. This step doesn't make any changes to your actual infrastructure but shows what will happen when you apply the configuration.
 
-#Applying: Run terraform apply to apply the configuration. Terraform will ask for confirmation before proceeding. Once confirmed, it will create the IAM users, groups, and attach the necessary policies as defined in the configuration.
+Applying: Run terraform apply to apply the configuration. Terraform will ask for confirmation before proceeding. Once confirmed, it will create the IAM users, groups, and attach the necessary policies as defined in the configuration.
 
-#Verification: After the apply completes, you can check your AWS console to verify that the resources were created as expected.
+Verification: After the apply completes, you can check your AWS console to verify that the resources were created as expected.
 
-#Destroy (Optional): If you want to remove all resources created by this Terraform configuration, you can run terraform destroy. This will delete all resources managed by this Terraform configuration from your AWS account.
+Destroy (Optional): If you want to remove all resources created by this Terraform configuration, you can run terraform destroy. This will delete all resources managed by this Terraform configuration from your AWS account.
 
 *********************************************************  Remember to review and adjust the region or any other parameters in the Terraform configuration as per your requirements.******************************************************************
