@@ -7,12 +7,54 @@ sudo yum install -y httpd
 sudo systemctl start httpd.service
 # Enable Apache service to start on boot
 sudo systemctl enable httpd.service
-# Create a custom index.html file
+# Create a custom index.html file with enhanced styling and content
 echo "<html>
 <head>
 <title>Welcome to Bame Tech Consulting Services</title>
+<style>
+body { 
+    font-family: 'Arial', sans-serif; 
+    margin: 40px; 
+    background-color: #f0f8ff; 
+    color: #333; 
+}
+h1 { 
+    color: #333366; 
+    text-align: center; 
+}
+h2 { 
+    color: #558877; 
+}
+.content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+ul {
+    list-style-type: none;
+}
+ul li {
+    margin: 10px 0;
+}
+</style>
 </head>
 <body>
+<div class='content'>
 <h1>Welcome to Bame Tech Consulting Services</h1>
+<p>At Bame Tech, we're committed to providing top-notch training and consulting services in technology. Our expertise in AWS Solutions Architect, Linux, and Networking ensures you're always ahead in the ever-evolving tech landscape.</p>
+<h2>Our Services</h2>
+<ul>
+<li><strong>AWS Solutions Architect:</strong> Comprehensive training and solutions tailored for the cloud.</li>
+<li><strong>Linux Systems Administration:</strong> Master the backbone of most modern technologies.</li>
+<li><strong>Networking Fundamentals:</strong> Learn the core of connectivity to drive your business forward.</li>
+</ul>
+<h2>Why Choose Us?</h2>
+<p>Our experienced team is dedicated to your success. We offer personalized solutions, ongoing support, and a commitment to excellence that sets us apart.</p>
+<p>Join our growing family of satisfied clients and experience a partnership that grows with your business.</p>
+<h2>Contact Us</h2>
+<p>Ready to elevate your tech skills? Contact us at <a href='mailto:info@bametech.com'>info@bametech.com</a> and take the first step towards your future in technology.</p>
+</div>
 </body>
 </html>" | sudo tee /var/www/html/index.html
+
