@@ -1,5 +1,5 @@
 Act in the capacity of a bash specialist and perform the following tasks:
-create a script that will automate the following aws tasks in AWS
+create a script that will automate the following tasks in AWS
 Create 2 IAM users name sammy and blossom
 Create an IAM group know as SOC and CNOC
 blossom should be added to the SOC group and sammy to the NOC group
