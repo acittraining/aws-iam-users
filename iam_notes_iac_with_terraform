@@ -1,3 +1,5 @@
+GitHub Repository : https://github.com/dheeraj3choudhary/Terraform-Series-Beginner/tree/main/user_group_policy
+
 ************************************** AWS IAM User  **************************************************************************************************
 An AWS IAM User represents a single person or entity within your organization who interacts with AWS resources.
 IAM users are typically used to assign specific permissions and access credentials (like access keys) to individuals who need to work within an AWS account.
