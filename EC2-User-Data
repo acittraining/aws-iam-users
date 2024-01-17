@@ -1,0 +1,18 @@
+#!/bin/bash
+# Update package lists
+sudo yum update -y
+# Install Apache
+sudo yum install -y httpd
+# Start Apache service
+sudo systemctl start httpd.service
+# Enable Apache service to start on boot
+sudo systemctl enable httpd.service
+# Create a custom index.html file
+echo "<html>
+<head>
+<title>Welcome to Bame Tech Consulting Services</title>
+</head>
+<body>
+<h1>Welcome to Bame Tech Consulting Services</h1>
+</body>
+</html>" | sudo tee /var/www/html/index.html
