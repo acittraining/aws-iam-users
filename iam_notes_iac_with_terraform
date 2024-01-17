@@ -1,4 +1,27 @@
-Why Use Terraform as Infra-As-Code Tool?
+************************************** AWS IAM User  **************************************************************************************************
+An AWS IAM User represents a single person or entity within your organization who interacts with AWS resources.
+IAM users are typically used to assign specific permissions and access credentials (like access keys) to individuals who need to work within an AWS account.
+IAM users have their own unique set of permissions and can have their own password or access keys for programmatic access to AWS resources.
+
+*************************************** ** AWS IAM Group **********************************************************************************************
+An AWS IAM Group is a collection of IAM users. Groups make it easier to manage permissions for multiple users.
+You can assign permissions to groups rather than individual users, simplifying the process of granting and revoking access for multiple users at once.
+IAM groups don't have their own credentials. Users within a group inherit the permissions assigned to that group.
+
+********************************************* AWS IAM Policy ***************************************************************************************
+An AWS IAM Policy is a JSON document that defines permissions, such as what actions are allowed or denied on what resources.
+Policies are attached to IAM users, groups, or roles to define what actions they can perform within AWS services.
+Policies are highly customizable, and you can create your own policies or use AWS managed policies. They follow the principle of least privilege, meaning users and roles should have the minimum permissions necessary to perform their tasks.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*********************Why Use Terraform as Infra-As-Code Tool?
+Infrastructure as code (IaC) tools allow you to manage infrastructure with configuration files rather than through a graphical user interface. IaC allows you to build, change, and manage your infrastructure in a safe, consistent, and repeatable way by defining resource configurations that you can version, reuse, and share.
+Terraform is HashiCorp's infrastructure as code tool. It lets you define resources and infrastructure in human-readable, declarative configuration files, and manages your infrastructure's lifecycle. Using Terraform has several advantages over manually managing your infrastructure:
+•	Terraform can manage infrastructure on multiple cloud platforms.
+•	The human-readable configuration language helps you write infrastructure code quickly.
+•	Terraform's state allows you to track resource changes throughout your deployments.
+•	You can commit your configurations to version control to safely collaborate on infrastructure.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+***********************************Why to Use Terraform As Infra-As-Code Tool ??? 
 Infrastructure as code (IaC) tools allow you to manage infrastructure with configuration files rather than through a graphical user interface. IaC allows you to build, change, and manage your infrastructure in a safe, consistent, and repeatable way by defining resource configurations that you can version, reuse, and share.
 Terraform is HashiCorp's infrastructure as code tool. It lets you define resources and infrastructure in human-readable, declarative configuration files, and manages your infrastructure's lifecycle. Using Terraform has several advantages over manually managing your infrastructure:
 •	Terraform can manage infrastructure on multiple cloud platforms.
@@ -6,15 +29,7 @@ Terraform is HashiCorp's infrastructure as code tool. It lets you define resourc
 •	Terraform's state allows you to track resource changes throughout your deployments.
 •	You can commit your configurations to version control to safely collaborate on infrastructure.
 
-Why to Use Terraform As Infra-As-Code Tool ??? 
-Infrastructure as code (IaC) tools allow you to manage infrastructure with configuration files rather than through a graphical user interface. IaC allows you to build, change, and manage your infrastructure in a safe, consistent, and repeatable way by defining resource configurations that you can version, reuse, and share.
-Terraform is HashiCorp's infrastructure as code tool. It lets you define resources and infrastructure in human-readable, declarative configuration files, and manages your infrastructure's lifecycle. Using Terraform has several advantages over manually managing your infrastructure:
-•	Terraform can manage infrastructure on multiple cloud platforms.
-•	The human-readable configuration language helps you write infrastructure code quickly.
-•	Terraform's state allows you to track resource changes throughout your deployments.
-•	You can commit your configurations to version control to safely collaborate on infrastructure.
-
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
  provider "aws" { 
  region = "var.AWS_REGION" 
@@ -30,7 +45,7 @@ Versions File:- It's always best practice to maintain a version file where you s
  required_version = ">= 0.12" 
  }
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Scenario 1:-Create 5 IAM users and a Developer group, and align all users as part of this Developer Group
 Let's create a variable to type a list to pass our usernames for whom the IAM user profile needs to be created in AWS.
 
@@ -117,7 +132,7 @@ resource "aws_iam_group_policy_attachment" "custom_policy" {
 
 
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Output File
 Output values make information about your infrastructure available on the command line, and can expose information for other Terraform configurations to use. Output values are similar to return values in programming languages.
 
@@ -129,7 +144,7 @@ output "dev-group-id" {
   value       = aws_iam_group.dev_group.id
   description = "A reference to the created IAM group"
 }
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style
  terraform fmt
 
