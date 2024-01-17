@@ -1,5 +1,5 @@
 
-#Automating 	IAM USERS, Groups and Policies attachment Using Terraform
+*********************************************************************************** Automating 	IAM USERS, Groups and Policies attachment Using Terraform ****************************************************************************************
 
 provider "aws" {
   region = "us-west-2" # Change this to your desired AWS region
