@@ -10,6 +10,7 @@ sudo yum install -y httpd
 sudo systemctl start httpd.service
 # Enable Apache service to start on boot
 sudo systemctl enable httpd.service
+
 # Create a custom index.html file with enhanced styling and content
 echo "<html>
 <head>
