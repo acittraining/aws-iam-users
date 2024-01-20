@@ -1,8 +1,8 @@
 Act in the capacity of a bash specialist and perform the following tasks:
-create a script that will automate the following tasks in AWS
+create a script that will automate the following tasks in AWS:
 Create 2 IAM users name sammy and blossom
 Create an IAM group known as SOC and CNOC
-blossom should be added to the SOC group and sammy to the NOC group
+blossom should be added to the SOC group and sammy to the CNOC group
 Add IAM Full Access permissions to the SOC group and AWSEC2FullAccess to the CNOC group
 Add AWS IAMUserChangePassword to the SOC and CNOC groups
 Create a login profile for sammy and blossom.
@@ -51,18 +51,26 @@ echo "Script execution completed."
 
 ALTERNATE METHOD OF AUTOMATING THE CREATION OF IAM Identities Using scripts
 
+#!/bin/bash
 # Create the IAM group
-aws iam create-group --group-name Finance
+aws iam create-group --group-name Bame-Tech-Finance
 
 # Attach a policy to the group (replace with your actual policy ARN)
 aws iam attach-group-policy --group-name Finance --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
 aws iam attach-group-policy --group-name Finance --policy-arn arn:aws:iam::aws:policy/IAMUserChangePassword
 # Create multiple users and add them to the group
-for user in mawein randolp heavenly olive; do
+for user in barbara randolp heavenly olive; do
     aws iam create-user --user-name $user
-    aws iam add-user-to-group --user-name $user --group-name Finance
+    aws iam add-user-to-group --user-name $user --group-name Bame-Tech-Finance
 
     # Create a login profile for each user
     aws iam create-login-profile --user-name $user --password MyPassword123! --password-reset-required
 done
 
+#SCRIPT TO REMOVE USERS FROM GROUP, DELETE LOGING PROFILE AND DELETE THE USER
+#!/bin/bash
+# Delete multiple users and add them to the group
+for user in barbara randolp heavenly olive; do
+    aws iam remove-user-from-group --group-name Bame-Tech-Finance --user-name $user
+    aws iam delete-login-profile --user-name $user
+done
