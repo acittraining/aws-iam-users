@@ -1,3 +1,6 @@
+####################### EC2 USER-DATA ################################################################
+#Script to install an Apache Server and install a webpage at boot time
+
 #!/bin/bash
 # Update package lists
 sudo yum update -y
