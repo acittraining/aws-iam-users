@@ -73,4 +73,5 @@ done
 for user in barbara randolp heavenly olive; do
     aws iam remove-user-from-group --group-name Bame-Tech-Finance --user-name $user
     aws iam delete-login-profile --user-name $user
+    aws iam delete-group --group-name Bame-Tech-Fiance
 done
